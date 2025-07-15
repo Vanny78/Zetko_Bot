@@ -12,31 +12,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("🧑‍💼 Contatta lo staff", callback_data="contact")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("👋 Benvenuto in Zekto!
-Scegli cosa vuoi fare:", reply_markup=reply_markup)
+    await update.message.reply_text("👋 Benvenuto in Zekto!\nScegli cosa vuoi fare:", reply_markup=reply_markup)
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     data = query.data
     if data == "bots":
-        text = "🏠 Agenzia Immobiliare
-🍝 Ristorante
-🎨 Artigiano
-🎥 Creator
-💇‍♀️ Estetista
-
-(Demo in arrivo)"
+        text = "🏠 Agenzia Immobiliare\n🍝 Ristorante\n🎨 Artigiano\n🎥 Creator\n💇‍♀️ Estetista\n\n(Demo in arrivo)"
     elif data == "reseller":
-        text = "Vuoi diventare rivenditore Zekto?
-Compila il form qui:
-https://forms.gle/XXXXXX"
+        text = "Vuoi diventare rivenditore Zekto?\nCompila il form qui:\nhttps://forms.gle/XXXXXX"
     elif data == "custom":
-        text = "Richiedi un bot personalizzato per la tua attività:
-https://forms.gle/YYYYYY"
+        text = "Richiedi un bot personalizzato per la tua attività:\nhttps://forms.gle/YYYYYY"
     elif data == "contact":
-        text = "📧 Email: zekto.service@gmail.com
-📲 Telegram: @Zekto_bot"
+        text = "📧 Email: zekto.service@gmail.com\n📲 Telegram: @Zekto_bot"
     else:
         text = "Selezione non valida."
 
